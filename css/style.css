@@ -46,6 +46,7 @@ img {
 }
 .navbar .nav-link:hover{
     font-weight: bolder;
+   
 }
 
 .btn {
@@ -73,7 +74,7 @@ img {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(21, 20, 51, 0.6);
+    background-color: rgba(0,0,0,0.5);
     z-index: -1;
 }
 
@@ -105,46 +106,45 @@ img {
     transform: scale(1.1);
 }
 
-#ExploreKERALA{
-    background-color: rgb(223, 238, 223);
-}
-.project {
+
+.district {
     
     position: relative;
     overflow: hidden;
-    width: 100%;
+    
+    
     
 }
-.project:hover h2{
+.district:hover h2{
     border-bottom: 2px solid white;
     
 }
 
-.project .overlay {
+.district .overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(20,21,51,0.9);
+    background-color: rgba(0,0,0,0.8);
     padding: 30px;
     display: flex;
-    align-items: flex-end;
+    align-items:flex-end;
     transition: all 0.4s ease;
     opacity: 0;
 }
 
-.project img {
-    height: 50vh;
+.district img {
+    height: 40vh;
     
     transition: all 0.4s ease;   
 }
 
-.project:hover .overlay{
+.district:hover .overlay{
     opacity: 1;
 }
 
-.project:hover img {
+.district:hover img {
     transform: scale(1.1);
 }
 
