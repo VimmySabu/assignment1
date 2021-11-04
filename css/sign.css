@@ -1,0 +1,19 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+:root{
+    --box-shadow: 0 8px 22px rgba(0,0,0,0.3);
+}
+form{
+    
+    border-radius: 40px;
+    box-shadow: var(--box-shadow);
+}
+.form-control{
+    border-radius: 30px;
+}
+
+.form-select{
+    border-radius: 30px;
+}
