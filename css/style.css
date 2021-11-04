@@ -60,7 +60,7 @@ img {
     
 }
 .landing{
-    background-image: url(/images/landing.jpg);
+    background-image: url("../images/landing.jpg");
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
