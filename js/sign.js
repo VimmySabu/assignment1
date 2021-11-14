@@ -11,7 +11,7 @@ let strengthBadge = document.getElementById('StrengthDisp');
 let strongPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})')
 let mediumPassword = new RegExp('((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))')
 
-
+const togglePassword = document.getElementById("toggle-password");
 
 
 const form = document.getElementById('signup');
@@ -187,7 +187,7 @@ const showSuccess = (input) => {
 }
 function StrengthChecker(PasswordParameter) {
     if(strongPassword.test(PasswordParameter)) {
-        strengthBadge.style.backgroundColor = "green";
+        strengthBadge.style.backgroundColor = "rgb(6, 104, 50)";
         strengthBadge.textContent = 'Strong';
     } else if(mediumPassword.test(PasswordParameter)) {
         strengthBadge.style.backgroundColor = 'blue';
@@ -209,6 +209,17 @@ passwordEl.addEventListener("input", () => {
     }
 });
 
+togglePassword.addEventListener("click", toggleClicked);
+    function toggleClicked() {  
+        if (this.checked) {
+          passwordEl.type = "text";
+          confirmPasswordEl.type="text";
+        } else {
+          passwordEl.type = "password";
+          confirmPasswordEl.type="password";
+        }
+        
+      }
 
 
 form.addEventListener('submit', function (e) {
