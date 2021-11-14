@@ -5,6 +5,14 @@ const phoneEl=document.getElementById('phone');
 const passwordEl = document.getElementById('password');
 const confirmPasswordEl = document.getElementById('confirm-password');
 
+let timeout;
+
+let strengthBadge = document.getElementById('StrengthDisp');
+let strongPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})')
+let mediumPassword = new RegExp('((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))')
+
+
+
 
 const form = document.getElementById('signup');
 let classes=(classes) => document.getElementsByClassName(classes);
@@ -87,12 +95,16 @@ const checkPassword = () => {
 
 
     const password = passwordEl.value.trim();
+    let regExpWeak = /[a-z]/;
+    let regExpMedium = /\d+/;
+    let regExpStrong = /.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/;
 
     if (!isRequired(password)) {
         showError(passwordEl, 'Password cannot be blank.');
         failureIcon[3].style.opacity = "1";
         successIcon[3].style.opacity = "0";
-    } else if (!isPasswordSecure(password)) {
+    } 
+    else if (!isPasswordSecure(password)) {
         showError(passwordEl, 'Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#$%^&*)');
         failureIcon[3].style.opacity = "1";
         successIcon[3].style.opacity = "0";
@@ -102,7 +114,7 @@ const checkPassword = () => {
         successIcon[3].style.opacity = "1";
         valid = true;
     }
-
+     
     return valid;
 };
 
@@ -173,6 +185,30 @@ const showSuccess = (input) => {
     const error = formField.querySelector('small');
     error.textContent = '';
 }
+function StrengthChecker(PasswordParameter) {
+    if(strongPassword.test(PasswordParameter)) {
+        strengthBadge.style.backgroundColor = "green";
+        strengthBadge.textContent = 'Strong';
+    } else if(mediumPassword.test(PasswordParameter)) {
+        strengthBadge.style.backgroundColor = 'blue';
+        strengthBadge.textContent = 'Medium';
+    } else {
+        strengthBadge.style.backgroundColor = 'red';
+        strengthBadge.textContent = 'Weak';
+    }
+}
+
+passwordEl.addEventListener("input", () => {
+    strengthBadge.style.display = 'block';
+    clearTimeout(timeout);
+    timeout = setTimeout(() => StrengthChecker(passwordEl.value), 500);
+    if(passwordEl.value.length !== 0) {
+        strengthBadge.style.display != 'block';
+    } else {
+        strengthBadge.style.display = 'none';
+    }
+});
+
 
 
 form.addEventListener('submit', function (e) {
@@ -233,3 +269,6 @@ form.addEventListener('input', debounce(function (e) {
             break;
     }
 }));
+
+
+

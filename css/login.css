@@ -5,6 +5,9 @@
     padding: 0px;
 
 }
+body{
+    background-image: linear-gradient(to right, rgba(223, 51, 123, 0.801) , rgb(241, 241, 44));
+}
 
 :root{
     --box-shadow: 0 8px 22px rgba(0,0,0,0.3);

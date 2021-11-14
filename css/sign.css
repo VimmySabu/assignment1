@@ -59,6 +59,10 @@ body {
     top: 15px;
     opacity: 0;
 }
+.togglePassword{
+    position: absolute;
+    right: 0;
+}
 .failure-icon,
 .error {
   color: red;
@@ -68,7 +72,10 @@ body {
   color: green;
 }
 
-
+.weak,.medium,.strong{
+    display: none;
+    
+}
 
 .form-field label {
     display: block;
