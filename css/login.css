@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
 *{
     margin: 0px;
     padding: 0px;
 
 }
+
 :root{
     --box-shadow: 0 8px 22px rgba(0,0,0,0.3);
 }
@@ -10,9 +13,37 @@ form{
     margin-top: 20%;
     border-radius: 40px;
     box-shadow: var(--box-shadow);
+    background-color: rgb(186, 229, 189);
     
     
 }
 .form-control{
     border-radius: 30px;
+}
+.btn{
+    width: 100%;
+    border-radius: 30px;
+}
+.btn:hover{
+    background-color: white;
+    color: rgb(6, 104, 83);
+}
+.form-field{
+    position: relative;
+}
+.success-icon,
+.failure-icon{
+    position: absolute;
+    padding: 30px;
+    right: 0;
+    top: 15px;
+    opacity: 0;
+}
+.failure-icon
+{
+  color: red;
+}
+
+.success-icon {
+  color: green;
 }

@@ -1,19 +1,123 @@
-*{
-    margin: 0px;
-    padding: 0px;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+:root {
+    --error-color: #dc3545;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
 }
-:root{
-    --box-shadow: 0 8px 22px rgba(0,0,0,0.3);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-form{
-    
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    background-image: linear-gradient(to right, rgba(223, 51, 123, 0.801) , rgb(241, 241, 44));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: rgb(186, 229, 189);
+    padding: 1em;
+    border-radius: 5px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.3);
+    width: 400px;
     border-radius: 40px;
-    box-shadow: var(--box-shadow);
 }
-.form-control{
+
+.form {
+    padding: 10px 20px;
+}
+
+.form h1 {
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 20px;
+
+}
+
+.form-field {
+    margin-bottom: 10px;
+    position: relative;
+
+
+}
+.success-icon,
+.failure-icon{
+    position: absolute;
+    padding: 30px;
+    right: 0;
+    top: 15px;
+    opacity: 0;
+}
+.failure-icon,
+.error {
+  color: red;
+}
+
+.success-icon {
+  color: green;
+}
+
+
+
+.form-field label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-field input {
+    border: solid 2px #f0f0f0;
+    padding: 10px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    display: block;
+    width: 100%;
     border-radius: 30px;
 }
 
-.form-select{
-    border-radius: 30px;
+.form-field input:focus {
+    outline: none;
 }
+
+.form-field.error input {
+    border-color: var(--error-color);
+}
+
+.form-field.success input {
+    border-color: var(--success-color);
+}
+
+
+.form-field small {
+    color: var(--error-color);
+}
+
+
+/* button */
+.btn{
+    width: 100%;
+    border-radius: 30px;
+    background-color: rgb(6, 104, 50);
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.btn:hover{
+    background-color: white;
+    color: rgb(6, 104, 50);
+}
+
+.btn:focus {
+    outline: none;
+}
+
+
