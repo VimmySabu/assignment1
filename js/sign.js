@@ -7,9 +7,6 @@ const confirmPasswordEl = document.getElementById('confirm-password');
 
 let timeout;
 
-let strengthBadge = document.getElementById('StrengthDisp');
-let strongPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})')
-let mediumPassword = new RegExp('((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))')
 
 const togglePassword = document.getElementById("toggle-password");
 
@@ -95,9 +92,7 @@ const checkPassword = () => {
 
 
     const password = passwordEl.value.trim();
-    let regExpWeak = /[a-z]/;
-    let regExpMedium = /\d+/;
-    let regExpStrong = /.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/;
+    
 
     if (!isRequired(password)) {
         showError(passwordEl, 'Password cannot be blank.');
@@ -141,7 +136,6 @@ const checkConfirmPassword = () => {
 
     return valid;
 };
-
 const isEmailValid = (email) => {
     const re = /^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9\-]+)\.([a-z]{2,8})(.[a-z]{2,8})?$/;
     return re.test(email);
@@ -185,7 +179,13 @@ const showSuccess = (input) => {
     const error = formField.querySelector('small');
     error.textContent = '';
 }
+
+let strengthBadge = document.getElementById('StrengthDisp');
+let strongPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})')
+let mediumPassword = new RegExp('((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))')
+
 function StrengthChecker(PasswordParameter) {
+    
     if(strongPassword.test(PasswordParameter)) {
         strengthBadge.style.backgroundColor = "rgb(6, 104, 50)";
         strengthBadge.textContent = 'Strong';

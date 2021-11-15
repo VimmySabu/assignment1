@@ -11,6 +11,11 @@ body{
 
 :root{
     --box-shadow: 0 8px 22px rgba(0,0,0,0.3);
+    --error-color: #dc3545;
+    --success-color: #1b702f;
+    --warning-color: #ffc107;
+    
+    
 }
 form{
     margin-top: 20%;
@@ -34,6 +39,19 @@ form{
 .form-field{
     position: relative;
 }
+.form-control.error  {
+    border-color: var(--error-color);
+}
+
+.form-control.success {
+    border-color: var(--success-color);
+}
+
+
+.form-field small {
+    color: var(--error-color);
+}
+
 .success-icon,
 .failure-icon{
     position: absolute;
