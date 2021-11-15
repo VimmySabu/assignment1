@@ -38,18 +38,21 @@ form{
 }
 .form-field{
     position: relative;
+    margin-bottom: 30px;
 }
-.form-control.error  {
-    border-color: var(--error-color);
+.form-field.error input {
+    border-color:red;
+    
 }
 
-.form-control.success {
-    border-color: var(--success-color);
+.form-field.success input {
+    border-color:green;
 }
 
 
 .form-field small {
-    color: var(--error-color);
+    color: red;
+    font-weight: bold;
 }
 
 .success-icon,

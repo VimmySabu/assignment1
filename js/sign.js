@@ -190,7 +190,7 @@ function StrengthChecker(PasswordParameter) {
         strengthBadge.style.backgroundColor = "rgb(6, 104, 50)";
         strengthBadge.textContent = 'Strong';
     } else if(mediumPassword.test(PasswordParameter)) {
-        strengthBadge.style.backgroundColor = 'blue';
+        strengthBadge.style.backgroundColor = 'orange';
         strengthBadge.textContent = 'Medium';
     } else {
         strengthBadge.style.backgroundColor = 'red';

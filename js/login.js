@@ -1,15 +1,13 @@
 
 var emailEl=document.getElementById("exampleInputEmail1");
 var pwdEl=document.getElementById("exampleInputPassword1")
-//var text1=document.getElementById("emailHelp");
-//var text2=document.getElementById("pwdHelp");
 var form=document.getElementById("login");
 var failureIcon=document.getElementsByClassName("failure-icon");
 var successIcon=document.getElementsByClassName("success-icon");
-//var regexp = /^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9\-]+)\.([a-z]{2,8})(.[a-z]{2,8})?$/;
 
 
 
+//checking email conditions
 const checkEmail = () => {
     let valid = false;
     const email = emailEl.value.trim();
@@ -29,6 +27,8 @@ const checkEmail = () => {
     }
     return valid;
 };
+//checking password conditions
+
 const checkPassword = () => {
     let valid = false;
 
@@ -98,19 +98,19 @@ form.addEventListener('submit', function (e) {
         isPasswordValid = checkPassword();
         
 
-    let isFormValid = isEmailValid &&isPasswordValid ;
+    let isFormValid = isEmailValid && isPasswordValid ;
         
 
     // submit to the server if the form is valid
     if (isFormValid) {
-        //console.log(isFormValid);
         console.log(isFormValid);
-        window.location="https://vimmysabu.github.io/assignment1/"
+        
+        window.location="https://vimmysabu.github.io/assignment1/";
     }
         
 });
 
-const debounce = (fn, delay = 100) => {
+function debounce(fn, delay = 200) {
     let timeoutId;
     return (...args) => {
         // cancel the previous timer
@@ -119,16 +119,18 @@ const debounce = (fn, delay = 100) => {
         }
         // setup a new timer
         timeoutId = setTimeout(() => {
-            fn.apply(null, args)
+            fn.apply(null, args);
         }, delay);
     };
-};
+}
 
 form.addEventListener('input', debounce(function (e) {
     switch (e.target.id) {
+        
         case 'email':
             checkEmail();
             break;
+        
         case 'password':
             checkPassword();
             break;
@@ -137,32 +139,7 @@ form.addEventListener('input', debounce(function (e) {
 }));
 
 
-/*function validate(){
-    if(regexp.test(email.value)==true&&pwd.value.length>=8){
-        text1.innerText="The email format is correct";
-        text1.style.color="green";
-        text2.innerText="The password format is correct"
-        text2.style.color="green";
-        
-        successIcon[0].style.opacity="1"
-        successIcon[1].style.opacity="1"
-        failureIcon[0].style.opacity="0"
-        failureIcon[1].style.opacity="0"
-        return true;
-    }
 
-    else if(regexp.test(email.value)==false){
-        text1.innerText="Enter valid format";
-        text1.style.color="red";
-        failureIcon[0].style.opacity="1";
-        return false;
-    }
-    else if(pwd.value.length<8){
-        text2.style.color="red";
-        failureIcon[1].style.opacity="1";
-        return false;
-    }
-}*/
 
 
 
