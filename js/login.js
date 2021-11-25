@@ -105,7 +105,7 @@ form.addEventListener('submit', function (e) {
     if (isFormValid) {
         console.log(isFormValid);
         
-        window.location="https://vimmysabu.github.io/assignment1/";
+        window.location.href=form.getAttribute("action");
     }
         
 });
@@ -127,11 +127,11 @@ function debounce(fn, delay = 200) {
 form.addEventListener('input', debounce(function (e) {
     switch (e.target.id) {
         
-        case 'email':
+        case 'exampleInputEmail1':
             checkEmail();
             break;
         
-        case 'password':
+        case 'exampleInputPassword1':
             checkPassword();
             break;
         
